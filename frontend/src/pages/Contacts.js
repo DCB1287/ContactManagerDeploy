@@ -11,6 +11,7 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
+        //"http://localhost:3000"
         const url = "https://still-stream-56632.herokuapp.com/"
         console.log(url)
         axios.get(`${url}api/contacts`) 
@@ -22,7 +23,6 @@ class Contacts extends React.Component {
     
     render(){    
         let contacts = this.state.contacts
-        console.log(contacts)
         return (
             <div>
                 {contacts.map(contact => 
