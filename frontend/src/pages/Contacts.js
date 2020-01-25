@@ -3,7 +3,7 @@ import Contact from '../components/contact_component'
 import axios from 'axios'
 import { CommentActions } from 'semantic-ui-react'
 
-
+require('dotenv').config()
 
 class Contacts extends React.Component {
     constructor() {

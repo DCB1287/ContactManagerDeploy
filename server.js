@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 // Allows the existence of the ".env" file.
-
+require('dotenv').config();
 
 // Initiates express server and defines a port.
 const app = express();
