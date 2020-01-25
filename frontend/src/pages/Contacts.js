@@ -11,7 +11,7 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
-        url = process.env.PRODUCTION_URL || "http://localhost:3000"
+        const url = process.env.PRODUCTION_URL || "http://localhost:3000"
         axios.get(`${url}/api/contacts`) 
             .then( response => {
                 const contacts = response.data
