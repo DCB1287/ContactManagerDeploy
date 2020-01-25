@@ -11,7 +11,8 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
-        axios.get("https://still-stream-56632.herokuapp.com/api/contacts") 
+        url = process.env.PRODUCTION_URL || "http://localhost:3000"
+        axios.get(`${url}/api/contacts`) 
             .then( response => {
                 const contacts = response.data
                 this.setState({ contacts })
