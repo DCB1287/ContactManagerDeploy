@@ -20,7 +20,7 @@
     "react-scripts": "^3.3.0",
     "react-stripe-checkout": "^2.6.3",
     "semantic-ui-react": "^0.87.3",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
