@@ -31,8 +31,8 @@ connection.once('open', () => {
 // i.e http://localhost:3000/contacts/add
 const contactsConnection = require('./routers/contactsAPI');
 const userConnection = require('./routers/usersAPI');
-app.use('/contacts', contactsConnection);
-app.use('/users', userConnection);
+app.use('/api/contacts', contactsConnection);
+app.use('/api/users', userConnection);
 
 if (process.env.NODE_ENV === 'production') {
     // Set static folder

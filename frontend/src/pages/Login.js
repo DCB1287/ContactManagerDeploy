@@ -65,7 +65,7 @@ function Login() {
     try {
       setLoading(true)
       setError('')
-      const url = "http://localhost:3000/users/"                      //This URL will need to be changed 
+      const url = "http://localhost:3000/api/users/"                      //This URL will need to be changed 
       const payload = { ...user}
       console.log(user)
       const response = await axios.get(url, payload)

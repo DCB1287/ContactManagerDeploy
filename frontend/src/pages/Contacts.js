@@ -11,7 +11,7 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
-        axios.get("http://localhost:3000/contacts") 
+        axios.get("http://localhost:3000/api/contacts") 
             .then( response => {
                 const contacts = response.data
                 this.setState({ contacts })

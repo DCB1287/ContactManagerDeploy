@@ -71,7 +71,7 @@ function Signup() {
       try {
         setLoading(true)
         setError('');
-        const url = "http://localhost:3000/users/add"               //This URL will need to be changed         
+        const url = "http://localhost:3000/api/users/add"               //This URL will need to be changed         
         const payload = { ...user} 
         console.log(user)
         const response = await axios.post(url, payload)          //Call the API to post the user data from the form.
