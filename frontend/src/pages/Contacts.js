@@ -3,7 +3,6 @@ import Contact from '../components/contact_component'
 import axios from 'axios'
 import { CommentActions } from 'semantic-ui-react'
 
-require('dotenv').config()
 
 class Contacts extends React.Component {
     constructor() {
@@ -11,9 +10,8 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
-        //"http://localhost:3000"
-        const url = "https://still-stream-56632.herokuapp.com/"
-        console.log(url)
+        // "https://still-stream-56632.herokuapp.com/"
+        const url = "http://localhost:3000"
         axios.get(`${url}api/contacts`) 
             .then( response => {
                 const contacts = response.data
