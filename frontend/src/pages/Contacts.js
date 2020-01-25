@@ -11,7 +11,7 @@ class Contacts extends React.Component {
         this.state = {contacts: []}
     }
     componentDidMount() {
-        axios.get("https://still-stream-56632.herokuapp.com:80/api/contacts") 
+        axios.get("https://still-stream-56632.herokuapp.com/api/contacts") 
             .then( response => {
                 const contacts = response.data
                 this.setState({ contacts })
