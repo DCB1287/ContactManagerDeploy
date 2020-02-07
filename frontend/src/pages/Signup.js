@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Icon, Message, Segment, Container } from 'semantic-ui-react'
 import axios from 'axios'
 import cookie from "js-cookie"
 
@@ -13,31 +13,9 @@ const INITIAL_USER = {
 //This will give the user a token we can track and navigate to the contacts page
 function handleLogin(token) {
   cookie.set("token", token);
-  //window.location.href = '/contacts'
+  window.location.href = '/contacts'
 }
 
-function catchErrors(error, displayError) {
-  let errorMsg;
-  if (error.response) {
-    // The request was made and the server responsed with a status code that is not in the range of 2XX
-    errorMsg = error.response.data;
-    console.error("Error response", errorMsg);
-
-    // For Cloudinary image uploads
-    if (error.response.data.error) {
-      errorMsg = error.response.data.error.message;
-    }
-  } else if (error.request) {
-    // The request was made, but no response was received
-    errorMsg = error.request;
-    console.error("Error request", errorMsg);
-  } else {
-    // Something else happened in making the request that triggered an error
-    errorMsg = error.message;
-    console.error("Error message", errorMsg);
-  }
-
-}
 
 function Signup() {
   const [user, setUser] = React.useState(INITIAL_USER)
@@ -74,13 +52,14 @@ function Signup() {
         // "https://still-stream-56632.herokuapp.com/"
         const url = "http://localhost:3000/api/users/add"               //This URL will need to be changed         
         const payload = { ...user} 
-        console.log(user)
+        console.log(payload)
         const response = await axios.post(url, payload)          //Call the API to post the user data from the form.
         handleLogin(response.data)
         }
 
         catch (error) {
-          catchErrors(error);
+          //catchErrors(error, setError);
+          setError(error.response.data.msg)
         }
 
         finally {
@@ -97,7 +76,7 @@ function Signup() {
 
   return (
     <>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"/>
+    <Container style={{'padding-top':'10px'}}>
     <Message 
       attached
       icon="settings"
@@ -107,6 +86,7 @@ function Signup() {
     />
     <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}> 
       <Message 
+        icon="frown outline"
         error
         header="Error!"
         content={error}
@@ -169,6 +149,7 @@ function Signup() {
       Already a user?{" "}
       <a href="/login">Log in here</a>
     </Message>
+    </Container>
     </>
     )
 }

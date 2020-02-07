@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Icon, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Icon, Message, Segment, Container } from 'semantic-ui-react'
 import axios from 'axios'
 import cookie from "js-cookie"
 
@@ -8,11 +8,14 @@ const INITIAL_USER = {
   email: ""
 }
 
+
+
 //This will give the user a token we can track and navigate to the contacts page
 function handleLogin(token) {
   cookie.set("token", token);
-  //window.location.href = '/contacts'
+  window.location.href = '/contacts'
 }
+
 
 function catchErrors(error, displayError) {
   let errorMsg;
@@ -66,10 +69,10 @@ function Login() {
       setLoading(true)
       setError('')
       // "https://still-stream-56632.herokuapp.com/"
-      const url = "http://localhost:3000/api/users/"                      //This URL will need to be changed 
+      const url = "http://localhost:3000/api/users/login"                      //This URL will need to be changed 
       const payload = { ...user}
       console.log(user)
-      const response = await axios.get(url, payload)
+      const response = await axios.post(url, payload)
       handleLogin(response.data)
     } catch (error) {
       catchErrors(error, setError)
@@ -80,7 +83,7 @@ function Login() {
 
   return (
     <>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"/>
+    <Container style={{'padding-top':'10px'}}>
     <Message 
       attached
       icon="privacy"
@@ -131,6 +134,7 @@ function Login() {
       New user?{" "}
       <a href="/signup">Sign up here</a>
     </Message>
+    </Container>
     </>
     )
 }

@@ -15,7 +15,6 @@ const contactSchema = new Schema({
     },   
     cellphone: {
         type: String,
-        minlength: 1
     },
 
     homephone: {
