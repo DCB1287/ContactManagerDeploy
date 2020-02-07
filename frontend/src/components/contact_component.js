@@ -24,7 +24,7 @@ function Contact(props) {
     const [deleteModalOpen, handleDeleteModalOpen] = React.useState(false)
 
     // "https://still-stream-56632.herokuapp.com/"  "http://localhost:3000/"
-    const url = "http://localhost:3000/"
+    const url = "https://floating-island-33074.herokuapp.com/"
 
     //Sets any change in the edit form to the contact variable
     function handleContactChange(event) {

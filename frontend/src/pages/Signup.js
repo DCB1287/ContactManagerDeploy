@@ -50,7 +50,7 @@ function Signup() {
         setLoading(true)
         setError('');
         // "https://still-stream-56632.herokuapp.com/"
-        const url = "http://localhost:3000/api/users/add"               //This URL will need to be changed         
+        const url = "https://floating-island-33074.herokuapp.com/api/users/add"               //This URL will need to be changed        floating-island-33074 
         const payload = { ...user} 
         console.log(payload)
         const response = await axios.post(url, payload)          //Call the API to post the user data from the form.
